@@ -43,6 +43,15 @@ def find_all_answers() -> List[dict]:
     conn.close()
     return answers
 
+def find_answer_by_id(answer_id: int) -> Optional[dict]:
+    conn = get_db_connection()
+    with conn.cursor() as cur:
+        cur.execute("SELECT * FROM answers WHERE id = %s;", (answer_id,))
+        answer = cur.fetchone()
+    conn.close()
+    return answer
+
+
 
 
 def find_answers_by_question_id(question_id: int) -> List[Answer]:

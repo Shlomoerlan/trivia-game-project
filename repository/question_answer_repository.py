@@ -68,7 +68,4 @@ def process_questions_and_answers():
 
     conn.close()
 
-# create_answers_table()
-questions = fetch_question_answers_from_api("https://opentdb.com/api.php?amount=20")
-print(questions)
-process_questions_and_answers()
+

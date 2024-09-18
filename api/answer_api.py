@@ -9,9 +9,6 @@ def create_answers(question_id: int, incorrect_answers: List[str]) -> List[Answe
         for answer in incorrect_answers
     ]
 
-question_id = 1
-incorrect_answers = ["Answer 1", "Answer 2", "Answer 3"]
 
-answers = create_answers(question_id, incorrect_answers)
 
 

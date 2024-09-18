@@ -8,6 +8,7 @@ from models.QuestionModel import Question
 def get_db_connection():
     return psycopg2.connect(SQL_URL, cursor_factory=RealDictCursor)
 
+
 def create_questions_table():
     conn = get_db_connection()
     with conn.cursor() as cur:
@@ -21,6 +22,7 @@ def create_questions_table():
         conn.commit()
     conn.close()
 
+
 def insert_questions(questions: List[Question]):
     conn = get_db_connection()
     with conn.cursor() as cur:
@@ -32,6 +34,7 @@ def insert_questions(questions: List[Question]):
         conn.commit()
     conn.close()
 
+
 def find_all_questions() -> List[dict]:
     conn = get_db_connection()
     with conn.cursor() as cur:
@@ -40,6 +43,7 @@ def find_all_questions() -> List[dict]:
     conn.close()
     return questions
 
+
 def find_question_by_id(question_id: int) -> Optional[dict]:
     conn = get_db_connection()
     with conn.cursor() as cur:
@@ -47,6 +51,7 @@ def find_question_by_id(question_id: int) -> Optional[dict]:
         question = cur.fetchone()
     conn.close()
     return question
+
 
 def create_question(question: Question) -> None:
     conn = get_db_connection()
@@ -58,6 +63,7 @@ def create_question(question: Question) -> None:
         conn.commit()
     conn.close()
 
+
 def update_question(question_id: int, question: Question) -> None:
     conn = get_db_connection()
     with conn.cursor() as cur:
@@ -67,6 +73,7 @@ def update_question(question_id: int, question: Question) -> None:
         """, (question.question_text, question.correct_answer, question_id))
         conn.commit()
     conn.close()
+
 
 def delete_question(question_id: int) -> None:
     conn = get_db_connection()

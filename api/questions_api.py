@@ -18,4 +18,3 @@ def fetch_questions_from_api() -> List[Question]:
     ) if response.status_code == 200 else []
 
 
-print(fetch_questions_from_api())

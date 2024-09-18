@@ -23,7 +23,4 @@ def fetch_question_answers_from_api(api_url: str) -> List[Question_Answer]:
     return question_answers
 
 
-api_url = "https://opentdb.com/api.php?amount=20"
-questions = fetch_question_answers_from_api(api_url)
 
-# print(questions)
